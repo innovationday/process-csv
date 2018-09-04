@@ -1,0 +1,20 @@
+ var jsonObj = {"Symbol" : line[0] ,
+ "StartTime" : line[1] ,
+        "EndTime" : line[2] ,
+        "Trades Timestamp" : line[3] ,
+        "Trades Quantity" : line[4] ,
+        "Trades Price" : line[5] ,
+        "Trades Exchange" : line[6] ,
+        "Trades MarketCenter" : line[7] ,
+        "Trades SubMarketCenter" : line[8] ,
+        "Trades TRDI" : line[9] ,
+        "Trades CanceledIndicator" : line[10] ,
+        "Trades DOTT" : line[11] ,
+        "Trades ITY" : line[12]            
+        "Trades Trades MSN" : line[13],
+        "Trades OMSN" : line[14],
+        "Outcome" : line[15],
+        "Message" : line[16], 
+        "Delay" : line[17]
+                    };   
+                    
