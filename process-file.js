@@ -8,7 +8,7 @@ var fs = require('fs');
 var parse = require('csv-parse');
 
 //var inputFile='marvel-data.csv';
-var inputFile='GetTrades.csv';
+var inputFile='Trades.csv';
 console.log("Processing  file : "+inputFile);
 var arr=new Array();
 var parser = parse({delimiter: ','}, function (err, data) {
@@ -57,6 +57,7 @@ var parser = parse({delimiter: ','}, function (err, data) {
     });
     console.log("No of documents retrieved from csv file : "+arr.length);
     storeDataInDB(arr);
+   // printStats();
 });
 
 // read the inputFile, feed the contents to the parser
@@ -74,19 +75,24 @@ function storeDataInDB(arr1){
       var dbo = db.db(dbName);
       dbo.collection(dbCollection).insertMany(arr, function(err, res) {
         if (err) throw err;
-        var tEnd = new Date().getTime();
-        var timeTaken = tEnd - tStart;
-
 
         console.log("No of json documents inserted in MongoDB  : "+res.insertedCount);
-        if(timeTaken<1000){
-		console.log("Time taken by the process : " + timeTaken+"milli seconds");
-		}else{
-		console.log("Time taken by the process : " + timeTaken/1000+" seconds");
-		}
+		printStats();
         db.close();
       });
     });
 
 
+
 }
+
+function printStats(){
+		var tEnd = new Date().getTime();
+        var timeTaken = tEnd - tStart;
+        if(timeTaken<1000){
+		console.log("Time taken by the process : " + timeTaken+"milli seconds");
+		}else{
+		console.log("Time taken by the process : " + timeTaken/1000+" seconds");
+		}
+
+	}
