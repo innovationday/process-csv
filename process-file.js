@@ -8,7 +8,7 @@ var fs = require('fs');
 var parse = require('csv-parse');
 
 //var inputFile='marvel-data.csv';
-var inputFile='TradesBulk.csv';
+var inputFile='Trades50000.csv';
 console.log("Processing  file : "+inputFile);
 var arr=new Array();
 var parser = parse({delimiter: ','}, function (err, data) {
