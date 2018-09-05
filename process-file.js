@@ -2,7 +2,7 @@
 var tStart = new Date().getTime();
 
 var dbName="process-csv";
-var dbCollection="SUPER_HEROS";
+var dbCollection="TRADES";
 var fs = require('fs');
 
 var parse = require('csv-parse');
